@@ -39,9 +39,27 @@ export default function AddPlacePopup(props) {
             buttonText={'Добавить'}
             children={(
                 <div className="popup__inputs">
-                    <input id="placeName-input" className="popup__input" onChange={handleNameChange} value={name} type="text" name="placeName-input" placeholder="Название" minLength="2" maxLength="30" required/>
+                    <input
+                        id="placeName-input"
+                        className="popup__input"
+                        onChange={handleNameChange}
+                        value={name}
+                        type="text"
+                        name="placeName-input"
+                        placeholder="Название"
+                        minLength="2"
+                        maxLength="30"
+                        required/>
                     <span className="placeName-input-error popup__input-error"/>
-                    <input id="placeUrl-input" className="popup__input" type="url" onChange={handleLinkChange} value={url} name="placeUrl-input" placeholder="Ссылка на картинку" required/>
+                    <input
+                        id="placeUrl-input"
+                        className="popup__input"
+                        type="url"
+                        onChange={handleLinkChange}
+                        value={url}
+                        name="placeUrl-input"
+                        placeholder="Ссылка на картинку"
+                        required/>
                     <span className="placeUrl-input-error popup__input-error"/>
                 </div>
             )}

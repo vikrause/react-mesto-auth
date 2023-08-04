@@ -18,9 +18,9 @@ export default function Main(props) {
             </section>
 
             <section className="cards">
-                    {props.cards.map((card, _id) =>(
+                    {props.cards.map((card) =>(
                         <Card
-                        key={_id}
+                        key={card._id}
                         card={card}
                         name={card.name}
                         likes={card.likes.length}

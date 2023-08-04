@@ -164,22 +164,20 @@ export default function App() {
     return (
         <CurrentUserContext.Provider value={currentUser}>
             <div className="page">
+                <Header
+                    loggedIn={loggedIn}
+                    onClick={signOut}
+                    email={emailName}
+                />
                 <Routes>
                     <Route path='/sign-in' element={
-                        <>
-                            <Header title="Регистрация" route="/sign-up"/>
-                            <Login onLogin={login}/>
-                        </>
+                        <Login onLogin={login}/>
                     }/>
                     <Route path='/sign-up' element={
-                        <>
-                            <Header title="Войти" route="/sign-in"/>
-                            <Register onRegister={register}/>
-                        </>
+                        <Register onRegister={register}/>
                     }/>
                     <Route exact path='/' element={
                         <>
-                            <Header title="Выйти" email={emailName} onClick={signOut} route=""/>
                             <ProtectedRoute
                                 component={Main}
                                 onEditAvatar={handleEditAvatarClick}
@@ -202,9 +200,18 @@ export default function App() {
                     isOpen={infoTooltip}
                     onClose={closePopups}
                 />
-                <EditProfilePopup isOpen={isEditProfilePopupOpen} onClose={closePopups} onUpdateUser={handleUpdateUser}/>
-                <EditAvatarPopup isOpen={isEditAvatarPopupOpen} onClose={closePopups} onUpdateAvatar={handleUpdateAvatar}/>
-                <AddPlacePopup isOpen={isAddPlacePopupOpen} onClose={closePopups} onSubmit={handleAddPlaceSubmit}/>
+                <EditProfilePopup
+                    isOpen={isEditProfilePopupOpen}
+                    onClose={closePopups}
+                    onUpdateUser={handleUpdateUser}/>
+                <EditAvatarPopup
+                    isOpen={isEditAvatarPopupOpen}
+                    onClose={closePopups}
+                    onUpdateAvatar={handleUpdateAvatar}/>
+                <AddPlacePopup
+                    isOpen={isAddPlacePopupOpen}
+                    onClose={closePopups}
+                    onSubmit={handleAddPlaceSubmit}/>
                 <PopupWithForm
                     onClose={closePopups}
                     name={'delete-card'}

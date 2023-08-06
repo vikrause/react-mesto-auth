@@ -12,6 +12,9 @@
 @import "./blocks/login/__form/login__form.css";
 @import "./blocks/login/__link/login__link.css";
 @import "./blocks/login/__button/login__button.css";
+@import "./blocks/login/__group/login__group.css";
+@import "./blocks/login/__icon-pass/login__icon-pass.css";
+@import "./blocks/login/__icon-pass/login__icon-notPass.css";
 
 @import "./blocks/header/header.css";
 @import "./blocks/header/__logo/header__logo.css";

@@ -1,0 +1,15 @@
+.login__icon-pass {
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    background: url("../../../images/vis.svg");
+    background-size: 25px 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+}
+
+.login__icon-pass:hover {
+    cursor: pointer;
+}

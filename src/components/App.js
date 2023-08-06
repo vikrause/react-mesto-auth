@@ -23,19 +23,19 @@ export default function App() {
     const [isAddPlacePopupOpen, setAddPlacePopupOpen] = React.useState(false);
     const [isEditAvatarPopupOpen, setEditAvatarPopupOpen] = React.useState(false);
     const [isImagePopupOpen, setIsImagePopupOpen] = useState(false);
+    const [infoTooltip, setInfoTooltip] = useState(false);
+
+
     const [selectedCard, setSelectedCard] = React.useState(null);
     const [cards, setCards] = React.useState([]);
-    const [currentUser, setCurrentUser] = React.useState({});
-    const [loggedIn, setLoggedIn] = useState(false);
     const [popupTitle, setPopupTitle] = useState("");
     const [popupImg, setPopupImg] = useState("");
     const [emailName, setEmailName] = useState(null);
-    const [infoTooltip, setInfoTooltip] = useState(false);
+
+    const [currentUser, setCurrentUser] = React.useState({});
+    const [loggedIn, setLoggedIn] = useState(false);
     const navigate = useNavigate();
 
-    function handleInfoTooltip() {
-        setInfoTooltip(true);
-    }
 
     function register(email, password) {
         auth.registerUser(email, password).then(() => {
@@ -86,6 +86,11 @@ export default function App() {
                 setCurrentUser(userData);
             }).catch(console.error);
     }, [])
+
+
+    function handleInfoTooltip() {
+        setInfoTooltip(true);
+    }
 
     function handleCardClick(card) {
         setSelectedCard(card);

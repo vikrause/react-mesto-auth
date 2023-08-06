@@ -1,0 +1,15 @@
+.login__icon-notPass {
+    z-index: 2;
+    width: 25px;
+    height: 25px;
+    background: url("../../../images/notVis.svg");
+    background-size: 25px 25px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: block;
+}
+
+.login__icon-notPass:hover {
+    cursor: pointer;
+}

@@ -4,7 +4,7 @@ export default function Login(props) {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [passVisibility, setPassVisibility] = useState("password");
-    const [iconPassClass, setIconPassClass] = useState("login__icon-notPass")
+    const [iconPassClass, setIconPassClass] = useState("login__icon-notPass");
 
     function handlePassVisibility() {
         switch (iconPassClass) {
@@ -42,7 +42,8 @@ export default function Login(props) {
                     <div className="login__group">
                         <input className="login__input" type={passVisibility} placeholder="Пароль" value={password} onChange={handlePasswordInput} maxLength={30} required/>
                         <span className={iconPassClass} onClick={handlePassVisibility}></span>
-                    </div>                    <button className="login__button" type="submit">Войти</button>
+                    </div>
+                    <button className="login__button" type="submit">Войти</button>
                 </form>
             </section>
         </>

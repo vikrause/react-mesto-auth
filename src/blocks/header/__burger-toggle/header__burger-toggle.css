@@ -1,0 +1,17 @@
+.header__burger-toggle {
+    display: none;
+    position: relative;
+    width: 34px;
+    height: 34px;
+    cursor: pointer;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+@media screen and (max-width: 480px) {
+    .header__burger-toggle {
+        display: flex;
+    }
+}

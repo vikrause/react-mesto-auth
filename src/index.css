@@ -19,8 +19,17 @@
 @import "./blocks/header/header.css";
 @import "./blocks/header/__logo/header__logo.css";
 @import "./blocks/header/__auth/header__auth.css";
+@import "./blocks/header/__auth/_inactive/header__auth_inactive.css";
 @import "./blocks/header/__link/header__link.css";
 @import "./blocks/header/__text/header__text.css";
+@import "./blocks/header/__checkbox/header__checkbox.css";
+@import "./blocks/header/__burger/header__burger.css";
+@import "./blocks/header/__burger/_active/header__burger_active.css";
+@import "./blocks/header/__burger-toggle/header__burger-toggle.css";
+@import "./blocks/header/__burger-bars/header__burger-bars.css";
+/*
+@import "./blocks/header/__checkbox/header__checkbox.css";
+*/
 
 @import "./blocks/profile/profile.css";
 @import "./blocks/profile/__container/profile__container.css";

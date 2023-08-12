@@ -1,0 +1,6 @@
+
+@media screen and (max-width: 480px) {
+    .header__auth_inactive {
+        display: none;
+    }
+}

@@ -1,0 +1,30 @@
+.header__checkbox {
+    display: none;
+}
+
+.header__checkbox:checked + .header__burger-toggle .header__burger-bars {
+    position: absolute;
+    transition-duration: .5s;
+}
+
+.header__checkbox:checked + .header__burger-toggle .header__burger-bars:nth-child(2) {
+    transform: scaleX(0);
+    transition-duration: .5s;
+}
+
+.header__checkbox:checked + .header__burger-toggle .header__burger-bars:first-child {
+    width: 100%;
+    transform: rotate(45deg);
+    transition-duration: .5s;
+}
+
+.header__checkbox:checked + .header__burger-toggle .header__burger-bars:last-child {
+    width: 100%;
+    transform: rotate(-45deg);
+    transition-duration: .5s;
+}
+
+.header__checkbox:checked + .header__burger-toggle {
+    transition-duration: .5s;
+    transform: rotate(180deg);
+}

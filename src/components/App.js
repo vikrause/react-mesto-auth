@@ -17,6 +17,7 @@ import InfoTooltip from "./InfoTooltip";
 import * as auth from '../utils/auth.js';
 import iconError from '../images/iconError.svg'
 import iconItsOk from '../images/iconItsOk.svg'
+import BurgerMenu from "./BurgerMenu";
 
 export default function App() {
     const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);

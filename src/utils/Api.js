@@ -90,12 +90,15 @@ class Api {
             return this._checkResponse(res);
         });
     }
+
+    setHeadersAuth(token) {
+        this._headers = { ...this._headers, Authorization: `Bearer ${token}` };
+    }
 }
 
 const api = new Api({
-    baseUrl: 'https://mesto.nomoreparties.co/v1/cohort-66',
+    baseUrl: 'https://api.domainname.vikrause1.nomoredomainsrocks.ru',
     headers: {
-        authorization: '19829aee-46a8-4b5d-8f84-0b42e3127f3f',
         'Content-Type': 'application/json'
     }
 });

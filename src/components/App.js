@@ -17,7 +17,6 @@ import InfoTooltip from "./InfoTooltip";
 import * as auth from '../utils/auth.js';
 import iconError from '../images/iconError.svg'
 import iconItsOk from '../images/iconItsOk.svg'
-import BurgerMenu from "./BurgerMenu";
 
 export default function App() {
     const [isEditProfilePopupOpen, setEditProfilePopupOpen] = React.useState(false);
@@ -52,6 +51,7 @@ export default function App() {
     function login(email, password) {
         auth.loginUser(email, password).then((res) => {
             localStorage.setItem("jwt", res.token);
+            api.setHeadersAuth(res.token);
             setLoggedIn(true);
             setEmailName(email);
             navigate("/");
@@ -67,27 +67,24 @@ export default function App() {
         if (jwt) {
             auth.getToken(jwt).then((res) => {
                 if (res) {
+                    api.setHeadersAuth(jwt);
                     setLoggedIn(true);
-                    setEmailName(res.data.email);
+                    setEmailName(res.email);
                 }
             }).catch(console.error);
         }
     }, []);
 
     useEffect(() => {
-        if (loggedIn === true) {
+        if (loggedIn) {
+            Promise.all([api.getUserInfo(), api.getInitialCards()])
+                .then(([userData, cards]) => {
+                    setCards(cards);
+                    setCurrentUser(userData);
+                }).catch(console.error);
             navigate("/");
         }
     }, [loggedIn, navigate]);
-
-    React.useEffect(() => {
-        Promise.all([api.getUserInfo(), api.getInitialCards()])
-            .then(([userData, cards]) => {
-                setCards(cards);
-                setCurrentUser(userData);
-            }).catch(console.error);
-    }, [])
-
 
     function handleInfoTooltip() {
         setInfoTooltip(true);
@@ -118,7 +115,7 @@ export default function App() {
     }
 
     function handleCardLike(card) {
-        const isLiked = card.likes.some(i => i._id === currentUser._id);
+        const isLiked = card.likes.some(i => i === currentUser._id);
 
         if (!isLiked) {
             api.addCardLike(card._id).then((newCard) => {
@@ -154,8 +151,9 @@ export default function App() {
     function signOut() {
         setLoggedIn(false);
         setEmailName(null);
-        navigate("/sign-in");
         localStorage.removeItem("jwt");
+        api.setHeadersAuth("");
+        navigate("/sign-in");
     }
 
     function closePopups() {

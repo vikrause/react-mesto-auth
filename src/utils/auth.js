@@ -1,4 +1,4 @@
-export const BASE_URL = "https://auth.nomoreparties.co";
+export const BASE_URL = "https://api.domainname.vikrause1.nomoredomainsrocks.ru";
 
 export const checkResponse = (res) => {
     return (res.ok) ? res.json() : Promise.reject(`Ошибка: ${res.status}`);

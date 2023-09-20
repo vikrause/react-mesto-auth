@@ -49,7 +49,7 @@ export default function Header(props) {
                 <img className="header__logo" src={vector} alt="Логотип"/>
                 <div className={`header__auth ${isLogged ? `header__auth_inactive` : ""}`}>
                     <p className="header__text">{props.email}</p>
-                    <Link to={route} className="header__link" type="button">{title}</Link>
+                    <Link to={route} className="header__link" type="button" onClick={props.onClick}>{title}</Link>
                 </div>
                 {isLogged &&
                     <>
